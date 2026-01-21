@@ -15,64 +15,6 @@ import Dashboard from "@/features/dashboard/page"
 import SplitVoice from "@/features/splitVoice/page"
 import { Link } from "react-router-dom"
 
-// Menu items
-// export const items = [
-//     { title: "dashboard", path: "/", element: <Dashboard /> },
-//     {
-//         title: "settings",
-//         // path: "/settings",
-//         // element: <div>settings Page</div>,
-//         children: [
-//             {
-//                 title: "Users",
-//                 // path: "/settings/users",
-//                 // element: <div>Users Page</div>,
-//                 children: [
-//                     {
-//                         title: "Roles",
-//                         // path: "/settings/users/roles",
-//                         // element: <div>Roles Page</div>,
-//                         children: [
-//                             { title: "Edit", path: "/settings/users/roles/edit", element: <div>Edit Role</div> },
-//                         ],
-//                     },
-//                 ],
-//             },
-//             { title: "Reports", path: "/settings/reports", element: <div>Reports Page</div> },
-//         ],
-//     },
-//     { title: "Inbox", path: "/inbox", element: <div>Inbox Page</div> },
-//     { title: "Calendar", path: "/calendar", element: <div>Calendar Page</div> },
-//     { title: "Search", path: "/search", element: <div>Search Page</div> },
-// ]
-
-// export const items2 = [
-//     {
-//         title: "soray",
-//         path: "/soray",
-//         element: <div>soray Page</div>,
-//         children: [
-//             {
-//                 title: "model",
-//                 path: "/soray/model",
-//                 element: <div>model Page</div>,
-//                 children: [
-//                     {
-//                         title: "rotate",
-//                         path: "/settings/model/rotate",
-//                         element: <div>rotate Page</div>,
-//                         children: [
-//                             { title: "Edit", path: "/settings/users/rotate/edit", element: <div>Edit Role</div> },
-//                         ],
-//                     },
-//                 ],
-//             },
-//             { title: "message", path: "/chat/message", element: <div>message Page</div> },
-//         ],
-//     },
-// ]
-
-
 export const items: MenuItem[] = [
     { title: "Dashboard", path: "/", element: <Dashboard /> },
     { title: "Split Voice", path: "/split-voice", element: <SplitVoice /> },
