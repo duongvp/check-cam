@@ -6,7 +6,7 @@ const App = () => {
   console.log("routes", routes);
   const children = useRoutes(routes);
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider storageKey="vite-ui-theme">
       {children}
     </ThemeProvider>
   );

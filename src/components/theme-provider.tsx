@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
-type Theme = "dark" | "light" | "system"
+// Thu gọn type chỉ còn duy nhất chế độ "light"
+type Theme = "light"
 
 type ThemeProviderProps = {
     children: React.ReactNode
@@ -14,7 +15,7 @@ type ThemeProviderState = {
 }
 
 const initialState: ThemeProviderState = {
-    theme: "system",
+    theme: "light",
     setTheme: () => null,
 }
 
@@ -22,7 +23,7 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
 export function ThemeProvider({
     children,
-    defaultTheme = "system",
+    defaultTheme = "light", // Thay đổi mặc định thành light ở đây
     storageKey = "vite-ui-theme",
     ...props
 }: ThemeProviderProps) {
@@ -33,19 +34,9 @@ export function ThemeProvider({
     useEffect(() => {
         const root = window.document.documentElement
 
+        // Xóa sạch các class cũ và luôn ép cứng class "light" vào thẻ html
         root.classList.remove("light", "dark")
-
-        if (theme === "system") {
-            const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-                .matches
-                ? "dark"
-                : "light"
-
-            root.classList.add(systemTheme)
-            return
-        }
-
-        root.classList.add(theme)
+        root.classList.add("light")
     }, [theme])
 
     const value = {
