@@ -16,8 +16,8 @@ import SplitVoice from "@/features/splitVoice/page"
 import { Link } from "react-router-dom"
 
 export const items: MenuItem[] = [
-    { title: "Dashboard", path: "/", element: <Dashboard /> },
-    { title: "Split Voice", path: "/split-voice", element: <SplitVoice /> },
+    // { title: "Dashboard", path: "/", element: <Dashboard /> },
+    { title: "Split Voice", path: "/", element: <SplitVoice /> },
     {
         title: "Settings",
         children: [
@@ -35,8 +35,8 @@ export const items: MenuItem[] = [
             { title: "Reports", path: "/settings/reports", element: <div>Reports Page</div> },
         ],
     },
-    { title: "Calendar", path: "/calendar", element: <div>Calendar Page</div> },
-    { title: "Search", path: "/search", element: <div>Search Page</div> },
+    // { title: "Calendar", path: "/calendar", element: <div>Calendar Page</div> },
+    // { title: "Search", path: "/search", element: <div>Search Page</div> },
 ]
 
 export const items2: MenuItem[] = [
