@@ -59,35 +59,35 @@ const normalizeConfirmedDate = (raw?: string): string => {
  *  - 15+16/1/2026
  *  - 15/1 + 16/1
  */
-const parseReportDates = (raw?: string): string[] => {
-    if (!raw) return [];
+// const parseReportDates = (raw?: string): string[] => {
+//     if (!raw) return [];
 
-    const cleaned = raw.replace(/\s+/g, '');
-    const parts = cleaned.split(/[+,]/);
+//     const cleaned = raw.replace(/\s+/g, '');
+//     const parts = cleaned.split(/[+,]/);
 
-    const yearMatch = cleaned.match(/\d{4}/);
-    const year = yearMatch?.[0];
+//     const yearMatch = cleaned.match(/\d{4}/);
+//     const year = yearMatch?.[0];
 
-    return parts
-        .map((p) => {
-            const seg = p.split('/');
+//     return parts
+//         .map((p) => {
+//             const seg = p.split('/');
 
-            // d/m/yyyy
-            if (seg.length === 3) {
-                const [d, m, y] = seg;
-                return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
-            }
+//             // d/m/yyyy
+//             if (seg.length === 3) {
+//                 const [d, m, y] = seg;
+//                 return `${y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
+//             }
 
-            // d/m (lấy year phía sau)
-            if (seg.length === 2 && year) {
-                const [d, m] = seg;
-                return `${year}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
-            }
+//             // d/m (lấy year phía sau)
+//             if (seg.length === 2 && year) {
+//                 const [d, m] = seg;
+//                 return `${year}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`;
+//             }
 
-            return '';
-        })
-        .filter(Boolean);
-};
+//             return '';
+//         })
+//         .filter(Boolean);
+// };
 
 /* ================= HOOK ================= */
 
@@ -125,7 +125,7 @@ export const usePerformanceSummary = (
             const reviewer = row.reviewer ?? 'UNKNOWN';
             const reported = Number(row.reported_count ?? 0);
 
-            const reportDates = parseReportDates(row.date);
+            // const reportDates = parseReportDates(row.date);
 
             const confirmDatesMap = actualMap[reviewer] || {};
 

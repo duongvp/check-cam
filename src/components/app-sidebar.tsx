@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import type { MenuItem } from "@/types/menu"
-import Dashboard from "@/features/dashboard/page"
+// import Dashboard from "@/features/dashboard/page"
 import SplitVoice from "@/features/splitVoice/page"
 import { Link } from "react-router-dom"
 
