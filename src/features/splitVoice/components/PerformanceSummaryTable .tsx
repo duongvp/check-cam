@@ -189,8 +189,9 @@ export const PerformanceSummaryTable = ({ type, data }: { type: 'user' | 'name';
                                     </TableCell>
                                     <TableCell>
                                         <Badge
-                                            className="text-[11px] font-bold px-2.5 py-0.5 rounded shadow-none"
-                                            variant={row.status === 'OK' ? 'default' : 'destructive'}
+                                            className={`text-[11px] font-bold px-2.5 py-0.5 rounded shadow-none ${row.status !== 'OK' && row.diff > 0 ? 'bg-emerald-500 hover:bg-emerald-600 text-white border-transparent' : ''
+                                                }`}
+                                            variant={row.status === 'OK' ? 'default' : (row.diff > 0 ? 'default' : 'destructive')}
                                         >
                                             {row.status === 'OK' ? 'Khớp (OK)' : 'Lệch Số'}
                                         </Badge>
@@ -205,6 +206,31 @@ export const PerformanceSummaryTable = ({ type, data }: { type: 'user' | 'name';
                             <td colSpan={type === 'name' ? 8 : 5} className="text-center p-12 text-sm text-slate-400 italic">
                                 Không có dữ liệu hiển thị.
                             </td>
+                        </TableRow>
+                    )}
+
+                    {filteredData.length > 0 && type === 'name' && (
+                        <TableRow className="bg-slate-100 hover:bg-slate-100 font-semibold border-t-2 border-slate-200">
+                            <TableCell colSpan={4} className="text-right text-slate-800 uppercase text-xs tracking-wider">
+                                Tổng cộng
+                            </TableCell>
+                            <TableCell className="text-right text-slate-900 bg-slate-200/50">
+                                {filteredData.reduce((sum, row) => sum + row.actual, 0)}
+                            </TableCell>
+                            <TableCell className="text-right text-slate-900">
+                                {filteredData.reduce((sum, row) => sum + row.reported, 0)}
+                            </TableCell>
+                            <TableCell className="text-right font-bold">
+                                {(() => {
+                                    const totalDiff = filteredData.reduce((sum, row) => sum + row.diff, 0);
+                                    return (
+                                        <span className={totalDiff > 0 ? 'text-emerald-600' : totalDiff < 0 ? 'text-rose-600' : 'text-slate-600'}>
+                                            {totalDiff > 0 ? `+${totalDiff}` : totalDiff}
+                                        </span>
+                                    );
+                                })()}
+                            </TableCell>
+                            <TableCell></TableCell>
                         </TableRow>
                     )}
                 </TableBody>
